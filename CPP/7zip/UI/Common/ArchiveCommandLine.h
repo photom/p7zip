@@ -76,6 +76,8 @@ struct CArcCmdLineOptions
 
   bool TechMode;
   bool ShowTime;
+
+  bool StdOutProgress;
   
   UStringVector HashMethods;
 

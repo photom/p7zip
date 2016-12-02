@@ -150,6 +150,7 @@ static const char *kHelpString =
     "  -sni : store NT security information\n"
     "  -sns[-] : store NTFS alternate streams\n"
     "  -so : write data to stdout\n"
+    "  -sopg : output progress even when stdout is redirected\n"
     "  -spd : disable wildcard matching for file names\n"
     "  -spe : eliminate duplication of root folder for extract command\n"
     "  -spf : use fully qualified file paths\n"

@@ -142,7 +142,9 @@ enum Enum
   kWriteToAltStreamIfColon,
 
   kDeleteAfterCompressing,
-  kSetArcMTime
+  kSetArcMTime,
+
+  kStdOutProgress
 
   #ifndef _NO_CRYPTO
   , kPassword
@@ -262,7 +264,9 @@ static const CSwitchForm kSwitchForms[] =
   { "snc" },
   
   { "sdel" },
-  { "stl" }
+  { "stl" },
+
+  { "sopg" }
 
   #ifndef _NO_CRYPTO
   , { "p",  NSwitchType::kString }
@@ -881,9 +885,11 @@ void CArcCmdLineParser::Parse1(const UStringVector &commandStrings,
   options.TechMode = parser[NKey::kTechMode].ThereIs;
   options.ShowTime = parser[NKey::kShowTime].ThereIs;
 
+  options.StdOutProgress = parser[NKey::kStdOutProgress].ThereIs;
+
   if (parser[NKey::kDisablePercents].ThereIs
       || options.StdOutMode
-      || !options.IsStdOutTerminal)
+      || (!options.StdOutProgress && !options.IsStdOutTerminal))
     options.Number_for_Percents = k_OutStream_disabled;
 
   if (options.StdOutMode)
